@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://github.com/ocit17/doc-jbemployeeclearance/blog</id>
-    <title>Test Site Blog</title>
+    <title>Custom Addons Blog</title>
     <updated>2017-10-24T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/ocit17/doc-jbemployeeclearance/blog"/>
-    <subtitle>The best place to stay up-to-date with the latest Test Site news and events.</subtitle>
-    <logo>https://github.com/ocit17/doc-jbemployeeclearance/img/favicon.ico</logo>
-    <rights>Copyright © 2020 Your Name or Your Company Name</rights>
+    <subtitle>The best place to stay up-to-date with the latest Custom Addons news and events.</subtitle>
+    <logo>https://github.com/ocit17/doc-jbemployeeclearance/img/icon.png</logo>
+    <rights>Copyright © 2020 PT Jababeka Tbk</rights>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
         <id>https://github.com/ocit17/doc-jbemployeeclearance/blog/2017/10/24/new-version-1.0.0.html</id>
