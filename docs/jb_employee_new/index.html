@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Employee New · Custom Addons</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Untuk menggunakan module ini pastikan reuqirement yang diperlukan sudah terinstall."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Employee New · Custom Addons"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ocit17.github.io//dokumentasi/"/><meta property="og:description" content="Untuk menggunakan module ini pastikan reuqirement yang diperlukan sudah terinstall."/><meta property="og:image" content="https://ocit17.github.io//dokumentasi/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ocit17.github.io//dokumentasi/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/dokumentasi/img/icon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/dokumentasi/js/scrollSpy.js"></script><link rel="stylesheet" href="/dokumentasi/css/main.css"/><script src="/dokumentasi/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/dokumentasi/"><img class="logo" src="/dokumentasi/img/icon.png" alt="Custom Addons"/><h2 class="headerTitleWithLogo">Custom Addons</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/dokumentasi/docs/jb_employee_new" target="_self">Dokumentasi</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Custom Module</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Custom Module</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/dokumentasi/docs/jb_employee_new">Employee New</a></li><li class="navListItem"><a class="navItem" href="/dokumentasi/docs/jb_employee_clearance">Employee Clearance</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Employee New</h1></header><article><div><span><p>Untuk menggunakan module ini pastikan reuqirement yang diperlukan sudah terinstall.</p>
+<blockquote>
+<p>Pastikan package python-ldap sudah terinstall !</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="requirement-package"></a><a href="#requirement-package" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirement Package</h2>
+<pre><code class="hljs">pip <span class="hljs-keyword">install</span> python-ldap
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="function-auto-create-ad"></a><a href="#function-auto-create-ad" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Function auto create AD</h2>
+<pre><code class="hljs">def autocreate_ad(self, **kwargs):
+        c, domain_server = self.connect_toad() 
+        domain      = domain_server+<span class="hljs-string">'.com'</span>
+        username    = kwargs[<span class="hljs-string">'username'</span>]
+        useremail   = kwargs[<span class="hljs-string">'email_private'</span>]
+        userpswd    = kwargs[<span class="hljs-string">'userpswd'</span>]
+        
+        check_acc       = self.check_account(username, kwargs[<span class="hljs-string">'oucomp'</span>], kwargs[<span class="hljs-string">'department'</span>])
+        <span class="hljs-keyword">if</span> check_acc != None:
+            username = check_acc[<span class="hljs-string">'sAMAccountName'</span>]
+            check_acc2 = self.check_account(check_acc[<span class="hljs-string">'sAMAccountName'</span>], kwargs[<span class="hljs-string">'oucomp'</span>], kwargs[<span class="hljs-string">'department'</span>])
+            <span class="hljs-keyword">if</span> check_acc2 != None:
+                username = check_acc2[<span class="hljs-string">'sAMAccountName'</span>]
+
+        cek_ou = self.check_ou(kwargs[<span class="hljs-string">'department'</span>])
+        <span class="hljs-keyword">if</span> cek_ou != None:
+            dn_ou = cek_ou[<span class="hljs-string">'dn_ou'</span>]
+
+        cek_mgr = self.check_mgr(kwargs[<span class="hljs-string">'manager'</span>])
+        <span class="hljs-keyword">if</span> cek_mgr != None:
+            user_manager = cek_mgr[<span class="hljs-string">'dn_mgr'</span>]
+        
+        userdn      = <span class="hljs-string">'CN='</span>+str(username.replace(<span class="hljs-string">"."</span>,<span class="hljs-string">" "</span>).title())+<span class="hljs-string">','</span>+dn_ou
+        # create<span class="hljs-built_in"> user
+</span>        create = c.<span class="hljs-builtin-name">add</span>(userdn, attributes={
+            <span class="hljs-string">'objectClass'</span>: [<span class="hljs-string">'organizationalPerson'</span>, <span class="hljs-string">'person'</span>, <span class="hljs-string">'top'</span>, <span class="hljs-string">'user'</span>],
+            <span class="hljs-string">'sAMAccountName'</span>: username,
+            <span class="hljs-string">'userPrincipalName'</span>: <span class="hljs-string">"{}@{}"</span>.format(username, domain),
+            <span class="hljs-string">'givenName'</span>: kwargs[<span class="hljs-string">'givenName'</span>],
+            <span class="hljs-string">'sn'</span>:kwargs[<span class="hljs-string">'sn'</span>],
+            <span class="hljs-string">'displayName'</span>: kwargs[<span class="hljs-string">'displayName'</span>],
+            <span class="hljs-string">'mail'</span>: <span class="hljs-string">"{}@{}"</span>.format(username, domain),
+            <span class="hljs-string">'title'</span>:kwargs[<span class="hljs-string">'level'</span>],
+            <span class="hljs-string">'department'</span>:kwargs[<span class="hljs-string">'department'</span>],
+            <span class="hljs-string">'physicalDeliveryOfficeName'</span>:kwargs[<span class="hljs-string">'office'</span>],
+            <span class="hljs-string">'telephoneNumber'</span>:kwargs[<span class="hljs-string">'phone'</span>],
+            <span class="hljs-string">'company'</span>:kwargs[<span class="hljs-string">'company'</span>],
+        })
+
+        # <span class="hljs-builtin-name">set</span> password - must be done before enabling<span class="hljs-built_in"> user
+</span>        # you must connect with SSL <span class="hljs-keyword">to</span> <span class="hljs-builtin-name">set</span> the password
+        c.extend.microsoft.modify_password(userdn, userpswd)
+
+        # cenable<span class="hljs-built_in"> user </span>changes password at next logon
+        c.modify(userdn, {<span class="hljs-string">'pwdLastSet'</span>: [(<span class="hljs-string">'MODIFY_REPLACE'</span>, 0)]})
+
+        emp_id = c.modify(userdn, {<span class="hljs-string">'employeeID'</span>: [(<span class="hljs-string">'MODIFY_REPLACE'</span>, kwargs[<span class="hljs-string">'empid'</span>])]})
+        add_manager = c.modify(userdn, {<span class="hljs-string">'manager'</span>: [(<span class="hljs-string">'MODIFY_REPLACE'</span>, user_manager)]})
+        proxyAddresses = c.modify(userdn, {<span class="hljs-string">'proxyAddresses'</span>: [(<span class="hljs-string">'MODIFY_REPLACE'</span>, [<span class="hljs-string">"smtp:{}@{}"</span>.format(username, domain_server+<span class="hljs-string">'.onmicrosoft'</span>+<span class="hljs-string">'.com'</span>), <span class="hljs-string">"SMTP:{}@{}"</span>.format(username, domain),])]})
+
+        # <span class="hljs-builtin-name">enable</span><span class="hljs-built_in"> user </span>(after password set)
+        result = c.modify(userdn, {<span class="hljs-string">'userAccountControl'</span>: [(<span class="hljs-string">'MODIFY_REPLACE'</span>, 512)]})
+
+        return {<span class="hljs-string">'create'</span>:create, <span class="hljs-string">'modified'</span>:add_manager, <span class="hljs-string">'name'</span>:kwargs[<span class="hljs-string">'displayName'</span>], <span class="hljs-string">'mail'</span>:<span class="hljs-string">"{}@{}"</span>.format(username, domain)}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="other"></a><a href="#other" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other</h2>
+<p>Lainnya.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/dokumentasi/docs/jb_employee_clearance"><span>Employee Clearance</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirement-package">Requirement Package</a></li><li><a href="#function-auto-create-ad">Function auto create AD</a></li><li><a href="#other">Other</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2020 PT Jababeka Tbk</section></footer></div></body></html>
